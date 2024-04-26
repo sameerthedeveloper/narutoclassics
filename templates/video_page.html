@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ video_title }}</title>
+    <link rel="stylesheet" href="video_page.css">
+    <style>
+        /* video_page.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.video-player {
+    position: relative;
+    width: 100%; /* Adjusted width for mobile */
+    margin: 50px auto;
+}
+
+video {
+    width: 100%;
+    display: block;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    width: 100px;
+    height: 10px;
+    -webkit-appearance: none;
+    background-color: #555;
+    outline: none;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Center the content and limit its width */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Add margin to the heading for spacing */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Create a container for the video player with a 16:9 aspect ratio */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin-bottom: 20px;
+}
+
+/* Style the embedded iframe to fill the container */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Style the controls for the video player */
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+.controls button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the related videos section */
+.related-videos {
+    margin-top: 30px;
+}
+
+.related-videos h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.video-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.video-card {
+    width: calc(33.33% - 20px); /* Adjusted width for mobile */
+    margin-bottom: 20px;
+}
+
+.video-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.video-card .button-container {
+    text-align: center;
+}
+
+.video-card .play-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.video-card .play-button:hover {
+    background-color: #0056b3;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .video-card {
+        width: calc(50% - 20px); /* Adjusted width for mobile */
+    }
+
+    input[type="range"] {
+        width: 70%; /* Adjusted width for mobile */
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        width: 10px;
+        height: 10px;
+    }
+}
+        /* Add this CSS to the existing stylesheet */
+
+.video-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.video-card {
+    width: calc(50% - 20px); /* Adjusted width for mobile */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    border-radius:5px
+}
+
+.video-info img {
+    width: 100px; /* Adjust size of the image */
+    margin-right: 20px; /* Add some space between image and details */
+    border-radius: 5px;
+}
+
+.video-details {
+    flex-grow: 1;
+    margin-right:200px;/* Take remaining space */
+}
+
+.video-details h3 {
+    font-size: 18px; /* Adjust font size of the title */
+    margin-bottom: 5px;
+}
+
+.video-details p {
+    font-size: 14px; /* Adjust font size of the display name */
+    margin-bottom: 10px;
+}
+
+.button-container {
+    text-align: center;
+}
+        /* Add this CSS to your existing style.css file */
+
+/* For mobile and desktop devices */
+@media screen and (max-width: 768px) {
+    .video-list {
+        display: flex;
+        flex-direction: column; /* Display videos in a single column */
+    }
+
+    .video-card {
+        width: 100%; /* Set the width to 100% to occupy the full width of the container */
+    }
+
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ video_title }}</h1>
+        <div class="video-player">
+        <video id="video" controls>
+            <source src="{{ video_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="controls">
+            <button id="play-pause">&#9658;</button>
+            <input type="range" id="seek-bar" value="0">
+            <button id="mute">&#128266;</button>
+            <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+            <button id="full-screen">&#128470;</button>
+        </div>
+    </div>
+        <div class="related-videos">
+    <h2>Related Videos</h2>
+    <div class="video-list">
+        {% for video in related_videos %}
+        <div class="video-card">
+            <div class="video-info">
+                <img src="https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/XsrytRUxks8BtTRf9HNlZkW2tvY/AAAABUsuJAhrY_O2wzX0YUuwOaWLp1Ee7D6O4oWe1spXrVKWGNywIhz6I9g5mitrlu1dh7Jw0dVzsZG3agmi_F1T4mMOxjYAhmhB4g.jpg" alt="{{ video.title }}">
+            </div>
+            <div class="video-details">
+                <h3>{{ video.title }}</h3>
+                <p>{{ video.display_name }}</p>
+                <div class="button-container">
+                    <a href="/video/{{ video.title }}/{{ video.url }}">
+                        <button class="play-button">Watch Now</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+    </div>
+<script>
+    const video = document.getElementById('video');
+const playButton = document.getElementById('play-pause');
+const seekBar = document.getElementById('seek-bar');
+const muteButton = document.getElementById('mute');
+const volumeBar = document.getElementById('volume-bar');
+const fullScreenButton = document.getElementById('full-screen');
+
+playButton.addEventListener('click', togglePlayPause);
+muteButton.addEventListener('click', toggleMute);
+fullScreenButton.addEventListener('click', toggleFullScreen);
+
+video.addEventListener('click', togglePlayPause);
+video.addEventListener('timeupdate', updateSeekBar);
+seekBar.addEventListener('input', seek);
+volumeBar.addEventListener('input', changeVolume);
+
+function togglePlayPause() {
+    if (video.paused || video.ended) {
+        video.play();
+        playButton.innerHTML = '&#10074;&#10074;'; // Pause symbol
+    } else {
+        video.pause();
+        playButton.innerHTML = '&#9658;'; // Play symbol
+    }
+}
+
+function toggleMute() {
+    if (video.muted) {
+        video.muted = false;
+        volumeBar.value = video.volume;
+        muteButton.innerHTML = '&#128266;';
+    } else {
+        video.muted = true;
+        volumeBar.value = 0;
+        muteButton.innerHTML = '&#128263;';
+    }
+}
+
+function toggleFullScreen() {
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+    }
+}
+
+function updateSeekBar() {
+    seekBar.value = video.currentTime / video.duration;
+}
+
+function seek() {
+    const seekTo = video.duration * seekBar.value;
+    video.currentTime = seekTo;
+}
+
+function changeVolume() {
+    video.volume = volumeBar.value;
+    if (video.volume === 0) {
+        muteButton.innerHTML = '&#128263;';
+    } else {
+        muteButton.innerHTML = '&#128266;';
+    }
+}
+
+</script>
+</body>
+</html>

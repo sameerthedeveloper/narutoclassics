@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto Episodes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Naruto Episodes</h1>
+        {% if 'username' in session %}
+            <div class="user-controls">
+                <p class="username">{{ session['username'] }}</p>
+                <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+            </div>
+        {% else %}
+            <p><a href="{{ url_for('login') }}">Login</a></p>
+        {% endif %}
+    </header>
+    <main>
+    <section class="episodes">
+        {% for episode in episodes %}
+        <div class="episode">
+            <div class="episode-thumbnail">
+                <img src="https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/XsrytRUxks8BtTRf9HNlZkW2tvY/AAAABUsuJAhrY_O2wzX0YUuwOaWLp1Ee7D6O4oWe1spXrVKWGNywIhz6I9g5mitrlu1dh7Jw0dVzsZG3agmi_F1T4mMOxjYAhmhB4g.jpg" alt="{{ episode['title'] }}">
+            </div>
+            <div class="episode-details">
+                <h3>{{ episode[0] }}</h3>
+                <p>Season: 1</p>
+                <p>Air Date: 3 October 2002</p>
+                <a href="{{ url_for('video_page', title=episode[0],url=episode[1]) }}" class="play-button">Watch Now</a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+
+    <footer>
+        <p>&copy; 2024 Naruto Episodes</p>
+    </footer>
+</body>
+</html>

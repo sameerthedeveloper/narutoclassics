@@ -1,0 +1,462 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #ffffff;
+}
+
+header {
+    background-color: #141414;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32px;
+}
+
+header p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+.episodes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    padding:5px;
+}
+
+.episode {
+    background-color: #333333;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.episode:hover {
+    transform: scale(1.05);
+}
+
+.episode img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ffffff;
+}
+
+.episode-details {
+    padding: 10px;
+}
+
+.episode-details h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.episode-details p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.play-button {
+    background-color: #e50914;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: #ff1f2a;
+}
+
+footer {
+    background-color: #141414;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* style.css */
+
+/* Reset default browser styles */
+body, h1, h2, h3, p, ul, li, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #141414;
+    color: #ffffff;
+}
+
+header {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.movie {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.movie h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.movie img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.movie a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #e50914;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff0f24;
+}
+
+.error-message {
+    color: #ff0f24;
+    margin-top: 10px;
+    text-align: center;
+}
+footer {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+}
+/* Update style.css for mobile styling */
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .user-controls {
+        margin-left: auto;
+    }
+
+    .logout-button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .episodes {
+        justify-content: center;
+    }
+
+    .episode {
+        width: calc(50% - 10px); /* Adjusted width for mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .logout-button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .episode {
+        width: calc(100% - 10px); /* Adjusted width for mobile */
+    }
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #ffffff;
+}
+
+header {
+    background-color: #111;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-right: 20px;
+}
+
+.logout-button {
+    background-color: #e50914;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #ff1f2a;
+}
+
+main {
+    padding: 20px;
+}
+/* style.css */
+
+/* Reset default browser styles */
+body, h1, h2, h3, p, ul, li, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #141414;
+    color: #ffffff;
+}
+
+header {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+     padding: 20px 0 90px;
+}
+
+/* Add video card styling */
+.video-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.video-card {
+    width: 280px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.video-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+}
+
+.play-button {
+    background-color: #e50914;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.play-button:hover {
+    background-color: #ff0a16;
+}
+
+/* Media query for smaller screens */
+
+* Add login and register form styling */
+.login-form,
+.register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #e50914;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff0f24;
+}
+
+.error-message {
+    color: #ff0f24;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    .login-form,
+    .register-form {
+        width: 90%; /* Adjusted width for mobile */
+    }
+}
+
+@media screen and (max-width:500px){
+     .episodes{
+     display:flex;
+     flex-direction:column;
+
+     }
+     .episode{
+     height:150px;
+     width:95%;
+     margin-left:10px;
+     align:center;
+     }
+
+     .episode img {
+    height:150px;
+    width:100px;
+}
+.episode-details {
+    padding: 10px;
+    float:right;
+    margin-top:-150px;
+    margin-right:110px;
+    }
+   header h1 {
+    font-size: 25px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Episode</title>
+    <!-- Add any necessary CSS styles -->
+</head>
+<body>
+    <header>
+        <h1>Watch Episode</h1>
+        <!-- Add any necessary navigation links -->
+    </header>
+    <main>
+        <div class="video-player">
+            <!-- Video player for the selected episode -->
+            <video controls>
+                <source src="{{ url_for('static', filename='videos/' + selected_episode['video']) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="related-videos">
+            <h2>Related Videos</h2>
+            <!-- Display related videos -->
+            {% for episode in related_episodes %}
+                <div class="related-video">
+                    <h3>{{ episode['title'] }}</h3>
+                    <img src="{{ url_for('static', filename='images/' + episode['image']) }}" alt="{{ episode['title'] }}">
+                    <!-- Add a link to each related video -->
+                    <a href="{{ url_for('movie', episode_id=episode['id']) }}">Watch Now</a>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <!-- Add any necessary footer content -->
+    </footer>
+</body>
+</html>

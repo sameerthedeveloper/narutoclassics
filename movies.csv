@@ -1,0 +1,7 @@
+id,title,year,genre,director,rating,description,image
+1,Inception,2010,Sci-Fi/Action,Christopher Nolan,8.8,A thief who enters the dreams of others to steal secrets from their subconscious.,inception.jpg
+2,The Godfather,1972,Crime/Drama,Francis Ford Coppola,9.2,The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.,godfather.jpg
+3,The Shawshank Redemption,1994,Drama, Frank Darabont,9.3,Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.,shawshank_redemption.jpg
+4,Pulp Fiction,1994,Crime/Drama,Quentin Tarantino,8.9,The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.,pulp_fiction.jpg
+5,The Dark Knight,2008,Action/Crime/Drama,Christopher Nolan,9.0,When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.,dark_knight.jpg
+6,Forrest Gump,1994,Drama/Romance,Robert Zemeckis,8.8,The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.,forrest_gump.jpg
